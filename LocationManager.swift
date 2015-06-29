@@ -571,8 +571,11 @@ private class AddressParser: NSObject{
       
       var objDict:NSDictionary = obj as! NSDictionary
       var types:NSArray = objDict.objectForKey("types") as! NSArray
-      let type = types.firstObject as! NSString
-      return type.isEqualToString(component as String)
+      if ((types.firstObject) != nil){
+          let type = types.firstObject as! NSString
+          return type.isEqualToString(component as String)
+      }
+      return false
     }
     
     if index == NSNotFound {
